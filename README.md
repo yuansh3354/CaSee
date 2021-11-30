@@ -1,4 +1,4 @@
-# CaSee: Used in Sc-expr Matrix to identify Cancer cells
+# CaSee <img src="yuansh-logo.png" width="280px" align="right" />
 
 The most important things for single cell RNA sequencing of human cancer is to identify which is cancer or normal cell. However in the present, the common method is to evaluate copy number variation (CNV). These methods which are based on the principle that CNV is common in human cancers about 85%.  And these methods are based on expression data to inferred CNV, so there is a certain error (~20%) with actual genome copy number compilation. In conclusion, using CNV to define cancer cells is time-consuming and inaccurate. Therefore, we developed CaSee, a tumor cell discrimination model based on deep learning framework. it's important to note that we developed this model only for identification of the cancer cells of scRNA and connot replace the copy number model. CaSee has stronger performance and better professionalism in cancer cell idetification.
 
