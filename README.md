@@ -16,6 +16,11 @@ The most important things for single cell RNA sequencing of human cancer is to i
 For instructions on installing anaconda on your machine (download the distribution that comes with python 3):
 https://www.anaconda.com/distribution/
 
+And you also download pytorch https://pytorch.org/ 
+
+Attention, if you in the chinese mainland, plz use `pip install` instand `conda install` 
+
+
 Next, use the environment configuration file located in **configs/CaSee_env_info.yaml** to create a conda environment:
 
 **It will take several minutes or hours depending on the speed of the network. Please be patient.**
