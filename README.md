@@ -108,5 +108,9 @@ please contact with me via the following ways:
 Best Regards,
 Yuan.SH
 ---------------------------------------
+
+For Chines student:
+如果文献看不懂或者不会用的话可以等一等，我到时候会在B站上录制相关的视频
+以及可以关注一下我的个人博客：https://blog.csdn.net/qq_40966210/category_11165022.html
 ```
 
