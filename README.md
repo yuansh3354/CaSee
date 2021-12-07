@@ -71,8 +71,9 @@ And you also download pytorch https://pytorch.org/
 
 Attention, if you in the Chinese mainland, plz use `pip install` instand `conda install`  
 
-> torch==1.9.0+cu111
-> torchvision==0.10.0+cu111
+> torch==1.9.0+cu111  
+> torchvision==0.10.0+cu111  
+> torchaudio==0.9.0
 
 Next, use the environment configuration file located in **configs/CaSee_env_info.yaml** to create a conda environment:
 
