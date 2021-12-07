@@ -1,0 +1,40 @@
+
+# configs of trainning-loop, plz attention this config_file must be in floder named "configs".
+# 训练集使用的配置文件，请务必放在configs文件夹下 
+
+--- 
+
+# training model args
+data_arguments: 
+  work_dir: /home/yuansh/Desktop/GSE148673/ # your scrnaseq working directory, plz attention endwith "/"
+  Counts_expr: GSM4476485_DCIS1_expr.csv # must .csv row is genesymbol and col is cells
+  Tissue_type: "Tumor" # Tissue type come from ['Tumor','Adjacent','Normal','Unknow'], this args would not affect scale_predict.
+  use_others: True # if you want to use cell cluseter which is not be annotation.
+  remove_genes: False # remove mt, rp, ercc, LNC, non-coding RNA
+
+# if you input raw count data matrix plz set cell_annotion is True
+# if you input candidate cancer count matrix plz set cell_annotion False
+# you can set your own gene markers.
+cell_annotion: True  
+Marker_genes:
+  T_cell: ["CD3D",'CD3E','CD2']
+  Fibroblast: ['COL1A1','DCN','C1R']
+  Myeloid: ['LYZ','CD68','TYROBP']
+  B_cell: ['CD79A','MZB1','MS4A1']
+  Endothelial: ['CLDN5','FLT1','RAMP2']
+  Mast: ['CPA3','TPSAB1','TPSB2']
+  DC: ['LILRA4','CXCR3','IRF7']
+  Cancer: ['EPCAM'] # EPCAM or Na or anything
+  
+save_files:
+  files: GSM4476485_DCIS1 # output file name
+
+trainig_loop:
+  times: 10
+  batch_size: 128  # if GPU not enough, plz set sutiable number  
+  max_epochs: 20 # Generally speaking 20 epochs is enough to get the result, if can't plz set sutiable number
+  seed: 42
+  lr: 0.0005
+  split_data_seed: 0
+  gpu: True
+ckpt: 
