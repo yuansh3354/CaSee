@@ -1,0 +1,146 @@
+Attaching SeuratObject
+INFO [2021-10-01 11:05:23] Parsing matrix: ./processfile/40922_expFile.txt
+INFO [2021-10-01 11:09:44] Parsing gene order file: ./processfile/40922_geneFile.txt
+INFO [2021-10-01 11:09:44] Parsing cell annotations file: ./processfile/40922_groupFiles.txt
+INFO [2021-10-01 11:09:44] ::order_reduce:Start.
+INFO [2021-10-01 11:09:46] .order_reduce(): expr and order match.
+INFO [2021-10-01 11:09:48] ::process_data:order_reduce:Reduction from positional data, new dimensions (r,c) = 22047,40922 Total=426850087 Min=0 Max=26489.
+INFO [2021-10-01 11:09:49] num genes removed taking into account provided gene ordering list: 979 = 4.44051344854175% removed.
+INFO [2021-10-01 11:09:51] -filtering out cells < 100 or > Inf, removing 0 % of cells
+INFO [2021-10-01 11:10:05] validating infercnv_obj
+INFO [2021-10-01 11:10:05] ::process_data:Start
+INFO [2021-10-01 11:10:05] Creating output path ./processfile/40922_inferCNV
+INFO [2021-10-01 11:10:05] Checking for saved results.
+INFO [2021-10-01 11:10:05] 
+
+	STEP 1: incoming data
+
+INFO [2021-10-01 11:11:26] 
+
+	STEP 02: Removing lowly expressed genes
+
+INFO [2021-10-01 11:11:26] ::above_min_mean_expr_cutoff:Start
+INFO [2021-10-01 11:11:28] Removing 14183 genes from matrix as below mean expr threshold: 0.1
+INFO [2021-10-01 11:11:30] validating infercnv_obj
+INFO [2021-10-01 11:11:30] There are 6885 genes and 40922 cells remaining in the expr matrix.
+INFO [2021-10-01 11:11:35] no genes removed due to min cells/gene filter
+INFO [2021-10-01 11:12:25] 
+
+	STEP 03: normalization by sequencing depth
+
+INFO [2021-10-01 11:12:25] normalizing counts matrix by depth
+INFO [2021-10-01 11:12:28] Computed total sum normalization factor as median libsize: 4483.500000
+INFO [2021-10-01 11:13:20] 
+
+	STEP 04: log transformation of data
+
+INFO [2021-10-01 11:13:20] transforming log2xplus1()
+INFO [2021-10-01 11:14:15] 
+
+	STEP 08: removing average of reference data (before smoothing)
+
+INFO [2021-10-01 11:14:15] ::subtract_ref_expr_from_obs:Start inv_log=FALSE, use_bounds=TRUE
+INFO [2021-10-01 11:14:15] subtracting mean(normal) per gene per cell across all data
+INFO [2021-10-01 11:14:22] -subtracting expr per gene, use_bounds=TRUE
+INFO [2021-10-01 11:16:17] 
+
+	STEP 09: apply max centered expression threshold: 3
+
+INFO [2021-10-01 11:16:17] ::process_data:setting max centered expr, threshold set to: +/-:  3
+INFO [2021-10-01 11:17:58] 
+
+	STEP 10: Smoothing data per cell by chromosome
+
+INFO [2021-10-01 11:17:58] smooth_by_chromosome: chr: chr1
+INFO [2021-10-01 11:18:30] smooth_by_chromosome: chr: chr10
+INFO [2021-10-01 11:18:56] smooth_by_chromosome: chr: chr11
+INFO [2021-10-01 11:19:23] smooth_by_chromosome: chr: chr12
+INFO [2021-10-01 11:19:50] smooth_by_chromosome: chr: chr13
+INFO [2021-10-01 11:20:14] smooth_by_chromosome: chr: chr14
+INFO [2021-10-01 11:20:41] smooth_by_chromosome: chr: chr15
+INFO [2021-10-01 11:21:06] smooth_by_chromosome: chr: chr16
+INFO [2021-10-01 11:21:33] smooth_by_chromosome: chr: chr17
+INFO [2021-10-01 11:22:02] smooth_by_chromosome: chr: chr18
+INFO [2021-10-01 11:22:23] smooth_by_chromosome: chr: chr19
+INFO [2021-10-01 11:22:52] smooth_by_chromosome: chr: chr2
+INFO [2021-10-01 11:23:21] smooth_by_chromosome: chr: chr20
+INFO [2021-10-01 11:23:46] smooth_by_chromosome: chr: chr21
+INFO [2021-10-01 11:24:02] smooth_by_chromosome: chr: chr22
+INFO [2021-10-01 11:24:26] smooth_by_chromosome: chr: chr3
+INFO [2021-10-01 11:24:55] smooth_by_chromosome: chr: chr4
+INFO [2021-10-01 11:25:20] smooth_by_chromosome: chr: chr5
+INFO [2021-10-01 11:25:48] smooth_by_chromosome: chr: chr6
+INFO [2021-10-01 11:26:15] smooth_by_chromosome: chr: chr7
+INFO [2021-10-01 11:26:43] smooth_by_chromosome: chr: chr8
+INFO [2021-10-01 11:27:09] smooth_by_chromosome: chr: chr9
+INFO [2021-10-01 11:29:20] 
+
+	STEP 11: re-centering data across chromosome after smoothing
+
+INFO [2021-10-01 11:29:20] ::center_smooth across chromosomes per cell
+INFO [2021-10-01 11:31:26] 
+
+	STEP 12: removing average of reference data (after smoothing)
+
+INFO [2021-10-01 11:31:26] ::subtract_ref_expr_from_obs:Start inv_log=FALSE, use_bounds=TRUE
+INFO [2021-10-01 11:31:26] subtracting mean(normal) per gene per cell across all data
+INFO [2021-10-01 11:31:33] -subtracting expr per gene, use_bounds=TRUE
+INFO [2021-10-01 11:33:28] 
+
+	STEP 14: invert log2(FC) to FC
+
+INFO [2021-10-01 11:33:28] invert_log2(), computing 2^x
+INFO [2021-10-01 11:36:09] 
+
+	STEP 15: Clustering samples (not defining tumor subclusters)
+
+INFO [2021-10-01 11:36:09] define_signif_tumor_subclusters(p_val=0.1
+INFO [2021-10-01 11:36:09] define_signif_tumor_subclusters(), tumor: epi
+INFO [2021-10-01 12:23:20] cut tree into: 1 groups
+INFO [2021-10-01 12:23:20] -processing epi,epi_s1
+INFO [2021-10-01 12:23:20] define_signif_tumor_subclusters(), tumor: Normal
+INFO [2021-10-02 01:02:58] cut tree into: 1 groups
+INFO [2021-10-02 01:02:58] -processing Normal,Normal_s1
+INFO [2021-10-02 01:08:07] ::plot_cnv:Start
+INFO [2021-10-02 01:08:07] ::plot_cnv:Current data dimensions (r,c)=6885,40922 Total=282094208.131856 Min=0.672026857075127 Max=1.77312791614042.
+INFO [2021-10-02 01:08:08] ::plot_cnv:Depending on the size of the matrix this may take a moment.
+INFO [2021-10-02 01:12:01] plot_cnv(): auto thresholding at: (0.862865 , 1.139593)
+INFO [2021-10-02 01:12:05] plot_cnv_observation:Start
+INFO [2021-10-02 01:12:05] Observation data size: Cells= 9364 Genes= 6885
+INFO [2021-10-02 01:12:05] plot_cnv_observation:Writing observation groupings/color.
+INFO [2021-10-02 01:12:05] plot_cnv_observation:Done writing observation groupings/color.
+INFO [2021-10-02 01:12:06] plot_cnv_observation:Writing observation heatmap thresholds.
+INFO [2021-10-02 01:12:06] plot_cnv_observation:Done writing observation heatmap thresholds.
+INFO [2021-10-02 01:12:14] Colors for breaks:  #00008B,#24249B,#4848AB,#6D6DBC,#9191CC,#B6B6DD,#DADAEE,#FFFFFF,#EEDADA,#DDB6B6,#CC9191,#BC6D6D,#AB4848,#9B2424,#8B0000
+INFO [2021-10-02 01:12:14] Quantiles of plotted data range: 0.862865242963905,0.966294577238691,0.998030286730556,1.03181814584266,1.13959254320475
+INFO [2021-10-02 01:12:19] plot_cnv_observations:Writing observation data to ./processfile/40922_inferCNV/infercnv.preliminary.observations.txt
+INFO [2021-10-02 01:13:10] plot_cnv_references:Start
+INFO [2021-10-02 01:13:10] Reference data size: Cells= 31558 Genes= 6885
+INFO [2021-10-02 13:55:31] plot_cnv_references:Number reference groups= 1
+INFO [2021-10-02 13:55:33] plot_cnv_references:Plotting heatmap.
+INFO [2021-10-02 13:56:00] Colors for breaks:  #00008B,#24249B,#4848AB,#6D6DBC,#9191CC,#B6B6DD,#DADAEE,#FFFFFF,#EEDADA,#DDB6B6,#CC9191,#BC6D6D,#AB4848,#9B2424,#8B0000
+INFO [2021-10-02 13:56:00] Quantiles of plotted data range: 0.862865242963905,0.972655089020171,0.998011168731468,1.02532968513601,1.13959254320475
+INFO [2021-10-02 13:56:10] plot_cnv_references:Writing reference data to ./processfile/40922_inferCNV/infercnv.preliminary.references.txt
+INFO [2021-10-02 14:01:45] 
+
+## Making the final infercnv heatmap ##
+INFO [2021-10-02 14:01:46] ::plot_cnv:Start
+INFO [2021-10-02 14:01:46] ::plot_cnv:Current data dimensions (r,c)=6885,40922 Total=282094208.131856 Min=0.672026857075127 Max=1.77312791614042.
+INFO [2021-10-02 14:01:47] ::plot_cnv:Depending on the size of the matrix this may take a moment.
+INFO [2021-10-02 14:05:40] plot_cnv(): auto thresholding at: (0.860407 , 1.139593)
+INFO [2021-10-02 14:05:43] plot_cnv_observation:Start
+INFO [2021-10-02 14:05:43] Observation data size: Cells= 9364 Genes= 6885
+INFO [2021-10-02 14:05:44] plot_cnv_observation:Writing observation groupings/color.
+INFO [2021-10-02 14:05:44] plot_cnv_observation:Done writing observation groupings/color.
+INFO [2021-10-02 14:05:45] plot_cnv_observation:Writing observation heatmap thresholds.
+INFO [2021-10-02 14:05:45] plot_cnv_observation:Done writing observation heatmap thresholds.
+INFO [2021-10-02 14:05:52] Colors for breaks:  #00008B,#24249B,#4848AB,#6D6DBC,#9191CC,#B6B6DD,#DADAEE,#FFFFFF,#EEDADA,#DDB6B6,#CC9191,#BC6D6D,#AB4848,#9B2424,#8B0000
+INFO [2021-10-02 14:05:52] Quantiles of plotted data range: 0.860407456795251,0.966294577238691,0.998030286730556,1.03181814584266,1.13959254320475
+INFO [2021-10-02 14:05:58] plot_cnv_observations:Writing observation data to ./processfile/40922_inferCNV/infercnv.observations.txt
+INFO [2021-10-02 14:06:48] plot_cnv_references:Start
+INFO [2021-10-02 14:06:48] Reference data size: Cells= 31558 Genes= 6885
+INFO [2021-10-03 03:01:36] plot_cnv_references:Number reference groups= 1
+INFO [2021-10-03 03:01:38] plot_cnv_references:Plotting heatmap.
+INFO [2021-10-03 03:02:07] Colors for breaks:  #00008B,#24249B,#4848AB,#6D6DBC,#9191CC,#B6B6DD,#DADAEE,#FFFFFF,#EEDADA,#DDB6B6,#CC9191,#BC6D6D,#AB4848,#9B2424,#8B0000
+INFO [2021-10-03 03:02:07] Quantiles of plotted data range: 0.860407456795251,0.972655089020171,0.998011168731468,1.02532968513601,1.13959254320475
+INFO [2021-10-03 03:02:17] plot_cnv_references:Writing reference data to ./processfile/40922_inferCNV/infercnv.references.txt
