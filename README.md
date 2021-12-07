@@ -69,7 +69,10 @@ https://www.anaconda.com/distribution/
 
 And you also download pytorch https://pytorch.org/ 
 
-Attention, if you in the Chinese mainland, plz use `pip install` instand `conda install` 
+Attention, if you in the Chinese mainland, plz use `pip install` instand `conda install`  
+
+> torch==1.9.0+cu111
+> torchvision==0.10.0+cu111
 
 Next, use the environment configuration file located in **configs/CaSee_env_info.yaml** to create a conda environment:
 
@@ -77,6 +80,19 @@ Next, use the environment configuration file located in **configs/CaSee_env_info
 
 ```
 conda env create -n CaSee -f configs/CaSee_env_info.yaml
+
+# if there are some warnings or errors 
+# you can manually install some main packages
+
+conda create -n CaSee python==3.8.8 # python==3.8
+
+pip install pytorch-lightning==1.3.7
+pip install scipy==1.7.0
+pip install numpy==1.20.3
+pip install scanpy==1.7.2
+pip install tourchmetrics==0.3.2
+pip install tourchvision==0.10.0
+pip install sklearn==0.23.2
 ```
 
 ## Prepare model args
