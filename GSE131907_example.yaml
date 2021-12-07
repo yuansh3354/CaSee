@@ -1,0 +1,37 @@
+
+# configs of trainning-loop, plz attention this config_file must be in floder named "configs".
+# 训练集使用的配置文件，请务必放在configs文件夹下 
+
+--- 
+
+# training model args
+data_arguments: 
+  work_dir: /media/yuansh/14THHD/BscModel-V4/GSE131907/ # your scrnaseq working directory
+  Counts_expr: GSE131907_epi_count.csv # must .csv
+  Tissue_type: "Tumor" # Tissue type come from ['Tumor','Adjacent','Normal','Unknow']
+  use_others: False # if you want to use cell cluseter which is not be annotation.
+  remove_genes: False # remove mt, rp, ercc, LNC, non-coding RNA
+
+cell_annotion: False    
+Marker_genes:
+  T_cell: ["CD3D",'CD3E','CD2']
+  Fibroblast: ['COL1A1','DCN','C1R']
+  Myeloid: ['LYZ','CD68','TYROBP']
+  B_cell: ['CD79A','MZB1','MS4A1']
+  Endothelial: ['CLDN5','FLT1','RAMP2']
+  Mast: ['CPA3','TPSAB1','TPSB2']
+  DC: ['LILRA4','CXCR3','IRF7']
+  Cancer: ['EPCAM']
+  
+save_files:
+  files: merge_data
+
+trainig_loop:
+  times: 10
+  batch_size: 128  # if GPU not enough, plz set sutiable number  
+  max_epochs: 20 # Generally speaking 20 epochs is enough to get the result, if can't plz set sutiable number
+  seed: 42
+  lr: 0.0005
+  split_data_seed: 0
+  gpu: True
+ckpt: 
