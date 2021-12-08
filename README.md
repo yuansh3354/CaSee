@@ -87,6 +87,11 @@ pip3 install torch==1.9.0 torchvision==0.10.0 torchaudio==0.9.0
 pip3 install opencv-python==4.5.2.54
 ```
 
+**Windos**
+
+```
+# plz, use jupyter notebook and install the necessary packages
+```
 > torch==1.9.0+cu111  
 > torchvision==0.10.0+cu111  
 > torchaudio==0.9.0
@@ -183,13 +188,19 @@ python CaSee.py --config configs/CaSee_Model_configs.yaml
 
 ## Contact
 
+if you have any question about CaSee, plz sent E-mail to me
+
+i will back you in 24 hours
+
 ```
+
+No. 2#110, North District,
 School of Basic Medical Sciences,
 Fujian Medical University,
 Fuzhou, Fujian, China.
 please contact with me via the following ways:
 (a) e-mail :yuansh3354@163.com
-
+9:30 am - 2:00 am
 ---------------------------------------
 Best Regards,
 Yuan.SH
