@@ -69,7 +69,11 @@ https://www.anaconda.com/distribution/
 
 And you also download pytorch https://pytorch.org/ 
 
-Attention, if you in the Chinese mainland, plz use `pip install` instand `conda install`  
+Attention, if you in the Chinese mainland, plz use `pip install` instand `conda install` 
+
+```
+pip3 install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
+```
 
 > torch==1.9.0+cu111  
 > torchvision==0.10.0+cu111  
