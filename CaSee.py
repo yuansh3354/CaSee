@@ -469,11 +469,19 @@ if my_times > 0:
         )
 
         # train loop
-        trainer = pl.Trainer(gpus=-1,
-                             callbacks=[checkpoint_callback],
-                             max_epochs=max_epochs,
-                             gradient_clip_val=0,
-                             auto_lr_find=False)  # 开始训练
+        if gpu == True:
+            trainer = pl.Trainer(gpus=-1,
+                callbacks=[checkpoint_callback],
+                max_epochs=max_epochs,
+                gradient_clip_val=0,
+                auto_lr_find=False)  # starting loops
+        else:
+            trainer = pl.Trainer(
+                callbacks=[checkpoint_callback],
+                max_epochs=max_epochs,
+                gradient_clip_val=0,
+                auto_lr_find=False)  # starting loops
+
         trainer.fit(model, train_iter, val_iter)
 
         # =============================================================================
