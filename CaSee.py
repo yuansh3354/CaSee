@@ -93,6 +93,7 @@ max_epochs = config_dict['trainig_loop']['max_epochs']
 seed = config_dict['trainig_loop']['seed']
 lr = config_dict['trainig_loop']['lr']
 split_data_seed = config_dict['trainig_loop']['split_data_seed']
+gpu = config_dict['trainig_loop']['gpu']
 
 if ckpt:
     my_times = 0
