@@ -96,12 +96,12 @@ pip3 install opencv-python==4.5.2.54
 > torchvision==0.10.0+cu111  
 > torchaudio==0.9.0
 
-Next, use the environment configuration file located in **configs/CaSee_env_info.yaml** to create a conda environment:
+~~Next, use the environment configuration file located in **configs/CaSee_env_info.yaml** to create a conda environment:
 
-**It will take several minutes or hours depending on the speed of the network. Please be patient.**
+~~**It will take several minutes or hours depending on the speed of the network. Please be patient.**
 
 ```
-conda env create -n CaSee -f configs/CaSee_env_info.yaml
+#conda env create -n CaSee -f configs/CaSee_env_info.yaml
 
 # if there are some warnings or errors 
 # you can manually install some main packages
