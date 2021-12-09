@@ -182,7 +182,7 @@ trainig_loop:
   seed: 42
   lr: 0.0005 
   split_data_seed: 0
-  
+  gpu:True 
 ckpt: 
 
 ```
