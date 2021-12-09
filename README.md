@@ -83,6 +83,8 @@ pip install scipy==1.7.0 # -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install numpy==1.20.3 # -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install scanpy==1.7.2 # -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install scikit-learn==0.23.2 # -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip3 install opencv-python==4.5.2.54 # -i https://pypi.tuna.tsinghua.edu.cn/simple
+
 # pip install tourchmetrics==0.3.2
 # pip install tourchvision==0.10.0
 
@@ -97,7 +99,6 @@ Attention, if you in the Chinese mainland, plz use `pip install` instand `conda 
 ```
 pip3 install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
 
-pip3 install opencv-python==4.5.2.54
 
 ```
 
@@ -105,7 +106,8 @@ pip3 install opencv-python==4.5.2.54
 
 ```
 pip3 install torch==1.9.0 torchvision==0.10.0 torchaudio==0.9.0
-pip3 install opencv-python==4.5.2.54
+
+
 ```
 
 **Windos**
