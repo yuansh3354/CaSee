@@ -82,9 +82,10 @@ pip install pytorch-lightning==1.3.7
 pip install scipy==1.7.0 #  or pip install scipy
 pip install numpy==1.20.3
 pip install scanpy==1.7.2
-pip install tourchmetrics==0.3.2
-pip install tourchvision==0.10.0
-pip install sklearn==0.23.2
+pip install scikit-learn==0.23.2
+#pip install tourchmetrics==0.3.2
+#pip install tourchvision==0.10.0
+#pip install sklearn==0.23.2
 ```
 
 And you also download pytorch https://pytorch.org/ 
