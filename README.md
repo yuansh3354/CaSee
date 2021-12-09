@@ -84,8 +84,8 @@ pip install numpy==1.20.3 # -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install scanpy==1.7.2 # -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install scikit-learn==0.23.2 # -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip3 install opencv-python==4.5.2.54 # -i https://pypi.tuna.tsinghua.edu.cn/simple
-pip install torchmetrics==0.3.2
-pip install torchvision==0.10.0
+pip install torchmetrics==0.3.2 # -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip install torchvision==0.10.0 # -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 ```
 
