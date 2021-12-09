@@ -67,6 +67,23 @@ https://drive.google.com/file/d/1zFepfrnfOzF3EjK6i-ge3s_w-5Q4Jw8n/view?usp=shari
 For instructions on installing anaconda on your machine (download the distribution that comes with python 3):
 https://www.anaconda.com/distribution/
 
+```
+#conda env create -n CaSee -f configs/CaSee_env_info.yaml
+
+# if there are some warnings or errors 
+# you can manually install some main packages
+# all pip software in all_pip_pacakges.yaml
+conda create -n CaSee python==3.8.8 # python==3.8
+
+pip install pytorch-lightning==1.3.7
+pip install scipy==1.7.0
+pip install numpy==1.20.3
+pip install scanpy==1.7.2
+pip install tourchmetrics==0.3.2
+pip install tourchvision==0.10.0
+pip install sklearn==0.23.2
+```
+
 And you also download pytorch https://pytorch.org/ 
 
 Attention, if you in the Chinese mainland, plz use `pip install` instand `conda install` 
@@ -100,24 +117,6 @@ pip3 install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f h
 
 ~~**It will take several minutes or hours depending on the speed of the network. Please be patient.**~~
 
-```
-#conda env create -n CaSee -f configs/CaSee_env_info.yaml
-
-# if there are some warnings or errors 
-# you can manually install some main packages
-# all pip software in all_pip_pacakges.yaml
-conda create -n CaSee python==3.8.8 # python==3.8
-
-pip install pytorch-lightning==1.3.7
-pip install scipy==1.7.0
-pip install numpy==1.20.3
-pip install scanpy==1.7.2
-pip install tourchmetrics==0.3.2
-pip install tourchvision==0.10.0
-pip install sklearn==0.23.2
-
-# 
-```
 
 ## Prepare model args
 
