@@ -123,6 +123,9 @@ pip3 install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f h
 
 ~~**It will take several minutes or hours depending on the speed of the network. Please be patient.**~~
 
+## Prepare candidate ref data
+
+Download `ref_data.tar.xz` and unzip the file, move the whole `ref_data` into the CaSee program work_dir.
 
 ## Prepare model args
 
