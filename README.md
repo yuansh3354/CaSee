@@ -78,7 +78,7 @@ https://www.anaconda.com/distribution/
 conda create -n CaSee python==3.8.8 # python==3.8
 conda activate CaSee
 
-pip install pytorch-lightning==1.3.7
+pip install pytorch-lightning==1.3.7 # -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install scipy==1.7.0 # -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install numpy==1.20.3 # -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install scanpy==1.7.2 # -i https://pypi.tuna.tsinghua.edu.cn/simple
