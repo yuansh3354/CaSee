@@ -74,9 +74,10 @@ https://www.anaconda.com/distribution/
 # you can manually install some main packages
 # all pip software in all_pip_pacakges.yaml
 conda create -n CaSee python==3.8.8 # python==3.8
+conda activate CaSee
 
 pip install pytorch-lightning==1.3.7
-pip install scipy==1.7.0
+pip install scipy==1.7.0 #  or pip install scipy
 pip install numpy==1.20.3
 pip install scanpy==1.7.2
 pip install tourchmetrics==0.3.2
