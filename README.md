@@ -90,7 +90,7 @@ pip3 install opencv-python==4.5.2.54
 **Windos**
 
 ```
-# plz, use jupyter notebook and install the necessary packages
+pip3 install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/cu111/torch_stable.html
 ```
 > torch==1.9.0+cu111  
 > torchvision==0.10.0+cu111  
