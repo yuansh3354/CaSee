@@ -1,4 +1,4 @@
-# Calculate the number of genes 
+# different gene expression counts in cancer and normal cells
 ### ---------------
 ###
 ### Create: Yuan.Sh
@@ -24,6 +24,10 @@ library(RColorBrewer)
 library(ggplot2)
 library(UCell)
 library(eoffice)
+library(cowplot)
+library(ggpubr)
+theme_set(theme_cowplot())
+
 # myfunctions 
 myhead = function(x,DT=FALSE){
   print(paste('Data dimension: ',dim(x)[1],dim(x)[2]))
@@ -41,19 +45,81 @@ show_col(mycolors)
 # options
 options(stringsAsFactors = F)
 options(as.is = T)
-setwd('/media/yuansh/14THHD/BscModel-V4/GSE131907')
+setwd('/media/yuansh/1THHD/Yuansh_Share/乳腺癌/data/data1/output')
 
-# main
+############## Cohort1 ############## 
 file_path = '/media/yuansh/My Passport/科研项目/深度学习模型/CapsuleNet预测肿瘤细胞/ref_data/Cancer_functional_module_gene_list.csv'
-sce =readRDS('rds/GSE131907_epi_std.rds')
+sce =readRDS('cohort1_std_analysis.rds')
 gene_list = read.csv(file_path)
-predict = read.csv('merge_data_h5_file/merge_data_predict_Integration_.csv',row.names = 1)
-file_path = '/media/yuansh/14THHD/BscModel-V4/supplementary materials/DEGs/'
+predict = read.csv('../cohort1_predict_Integration_.csv',row.names = 1)
+file_path = '/media/yuansh/14THHD/BscModel-V4/PMID33958794/IPA-time/'
+dir(file_path)
+file_path = paste0(file_path,'scale_predict_wilcoxon_cohort1_Pre.csv')
+DEGs = read.csv(file_path,row.names = 1)
+DEGs = DEGs[which( (DEGs$pvals_adj<0.01) & (abs(DEGs$logfoldchanges)>1)),]
 
-############# 
+# using pre
 sce = AddMetaData(sce,predict)
 a = sce@meta.data
+a = a[which(!is.na(a$scale_predict)),]
+a$Log2_nCount_RNA = log(a$nCount_RNA,2)
+df = a[which(a$timepoint == 'Pre'),]
 
-ggplot(a,aes(scale_predict,nFeature_RNA)) +geom_boxplot()
+p1 = ggplot(df,aes(scale_predict,Log2_nCount_RNA,fill=scale_predict)) +geom_boxplot() + ggtitle('Cohort1_Pre')+
+  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "t.test")
+df = a[which(a$timepoint == 'On'),]
+p2 = ggplot(df,aes(scale_predict,Log2_nCount_RNA,fill=scale_predict)) +geom_boxplot() + ggtitle('Cohort1_On')+
+  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "t.test")
 
+df = a[which((a$timepoint == 'Pre') & (a$expansion == 'E')),]
+p3 = ggplot(df,aes(scale_predict,Log2_nCount_RNA,fill=scale_predict)) +geom_boxplot()+ ggtitle('Pre_E')+
+  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "t.test")
+df = a[which((a$timepoint == 'Pre') & (a$expansion == 'NE')),]
+p4 = ggplot(df,aes(scale_predict,Log2_nCount_RNA,fill=scale_predict)) +geom_boxplot()+ ggtitle('Pre_NE')+
+  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "t.test")
 
+df = a[which((a$timepoint == 'On') & (a$expansion == 'E')),]
+p5 = ggplot(df,aes(scale_predict,Log2_nCount_RNA,fill=scale_predict)) +geom_boxplot()+ ggtitle('On_E')+
+  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "t.test")
+df = a[which((a$timepoint == 'On') & (a$expansion == 'NE')),]
+p6 = ggplot(df,aes(scale_predict,Log2_nCount_RNA,fill=scale_predict)) +geom_boxplot()+ ggtitle('On_NE')+
+  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "t.test")
+x = CombinePlots(plots = list(p1,p2,p3,p4,p5,p6),legend='right')
+topptx(x,filename = '~/Desktop/cohort1.pptx',width = 8,height = 6)
+
+#wilcox.test
+############## GSE131907 ############## 
+setwd('/media/yuansh/14THHD/BscModel-V4/GSE131907/')
+rm(list = ls())
+gc()
+predict = read.csv('merge_data_h5_file/merge_data_predict_Integration_.csv',row.names = 1)
+sce = readRDS('rds/GSE131907_epi_std.rds')
+sce = AddMetaData(sce,predict)
+
+a = sce@meta.data
+a$Log2_nCount_RNA = log(a$nCount_RNA,2)
+p1 = ggplot(a,aes(scale_predict,Log2_nCount_RNA,fill=scale_predict)) +geom_boxplot() + ggtitle('GSE131907')+
+  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "t.test")
+
+df = a[which(a$Sample_Origin == 'mBrain'),]
+p2 = ggplot(a,aes(scale_predict,Log2_nCount_RNA,fill=scale_predict)) +geom_boxplot() + ggtitle('mBrain')+
+  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "t.test")
+
+df = a[which(a$Sample_Origin == 'tLung'),]
+p3 = ggplot(a,aes(scale_predict,Log2_nCount_RNA,fill=scale_predict)) +geom_boxplot() + ggtitle('tLung')+
+  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "t.test")
+
+df = a[which(a$Sample_Origin == 'tL/B'),]
+p4 = ggplot(a,aes(scale_predict,Log2_nCount_RNA,fill=scale_predict)) +geom_boxplot() + ggtitle('tL/B')+
+  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "t.test")
+
+df = a[which(a$Sample_Origin == 'mLN'),]
+p5 = ggplot(a,aes(scale_predict,Log2_nCount_RNA,fill=scale_predict)) +geom_boxplot() + ggtitle('mLN')+
+  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "t.test")
+
+df = a[which(a$Sample_Origin == 'PE'),]
+p6 = ggplot(a,aes(scale_predict,Log2_nCount_RNA,fill=scale_predict)) +geom_boxplot() + ggtitle('PE')+
+  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "t.test")
+
+x = CombinePlots(plots = list(p1,p2,p3,p4,p5,p6),legend='right')
+topptx(x,filename = '~/Desktop/GSE131907.pptx',width = 8,height = 6)
