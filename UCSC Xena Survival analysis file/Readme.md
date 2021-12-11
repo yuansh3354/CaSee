@@ -1,0 +1,2 @@
+# TCGA survival analysis
+  Survival analysis was executed in UCSC Xena, using GDC TCGA Breast Cancer (BRCA) HTSeq-FPKM gene expression profile. ANKRD30A gene expression cut-off is 0.6; SYTL2 using quartiles cut-off. Survival curves were fitted using the Kaplan–Meier formula in the R package ‘survival’ and visualized using the ggsurvplot function of the R package ‘survminer’. Code: https://github.com/yuansh3354/CaSee/blob/main/Survival%20analysis.R  
