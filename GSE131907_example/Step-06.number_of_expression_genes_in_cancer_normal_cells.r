@@ -6,7 +6,7 @@
 ### Email: yuansh3354@163.com
 ### Blog: https://blog.csdn.net/qq_40966210
 ### Fujian Medical University
-### Ref : https://github.com/carmonalab/UCell_demo
+### Ref : DOI:https://doi.org/10.1016/j.cell.2020.07.017 (Figure S1F)
 ###
 ### ---------------
 
