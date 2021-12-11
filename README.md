@@ -195,6 +195,11 @@ python CaSee.py --config configs/CaSee_Model_configs.yaml
 
 users can run jupyter notebook to create your own Customization pipeline
 
+and all the following analysis was deposited in Google link (above).
+
+especially, GSE131907 reproduction code was deposited in `GSE131907_example`
+
+
 ## Contact
 
 if you have any question about CaSee, plz sent E-mail to me
