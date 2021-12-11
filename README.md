@@ -193,6 +193,8 @@ ckpt:
 python CaSee.py --config configs/CaSee_Model_configs.yaml
 ```
 
+users can run jupyter notebook to create your own Customization pipeline
+
 ## Contact
 
 if you have any question about CaSee, plz sent E-mail to me
