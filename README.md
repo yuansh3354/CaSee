@@ -159,6 +159,8 @@ data_arguments:
 # Because CaSee is not applicable in non-candidate cells 
 cell_annotion: False    
 
+
+# "cell exclusion" algorithm
 # This is default cells markers, you can use your own marker to define cell cluster.
 Marker_genes:
   T_cell: ["CD3D",'CD3E','CD2']
