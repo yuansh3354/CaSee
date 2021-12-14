@@ -520,7 +520,7 @@ if my_times > 0:
                                            cov_in=1, cov_out=256, cov_kernel_size=9,
                                            pc_input_channels=256, pc_output_caps=32, pc_output_dim=8, pc_kernel_size=9, pc_stride=2,
                                            rc_in_dim=8, rc_in_caps=32 * 6 * 6, rc_dim_caps=16, rc_num_routing=3)
-        if gpus == True:
+        if gpu == True:
             trainer = pl.Trainer(gpus=-1)
         else:
             trainer = pl.Trainer()
