@@ -201,6 +201,32 @@ and all the following analysis was deposited in Google link (above).
 
 especially, GSE131907 reproduction code was deposited in `GSE131907_example`
 
+## Reproduce
+
+**GSE131907 as example**
+
+before you starting, you can makdir `CaSee_Reproduce`
+
+and the, download the files deposit in google drive, `ref_data.tar.xz` and `GSE131907` in `CaSee_Reproduce`
+
+then check md5sum
+
+- 21b2bf676d834ef7a6215219c7bb4a53  GSE131907.tar.xz
+
+- 4faaef9a5c87fa0896d00cdbed7efd31  ref_data.tar.xz
+ 
+ 
+then move the `ref_data` to CaSee model work directory `CaSee-main`
+
+next, you only modify the 'work_dir' in `CaSee_Reproduce/CaSee_Model_configs.yaml` for your own.
+
+then run
+
+```bash
+python CaSee.py --config /home/yuansh/Desktop/CaSee_Reproduce/CaSee_Model_configs.yaml
+```
+
+
 
 ## Contact
 
