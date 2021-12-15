@@ -205,9 +205,9 @@ especially, GSE131907 reproduction code was deposited in `GSE131907_example`
 
 **GSE131907 as example**
 
-before you starting, you can makdir `CaSee_Reproduce`
+before you starting, makdir `CaSee_Reproduce`
 
-and the, download the files deposit in google drive, `ref_data.tar.xz` and `GSE131907` in `CaSee_Reproduce`
+and then download the files deposit in google drive (link above), `ref_data.tar.xz` and `GSE131907` in `CaSee_Reproduce`
 
 then check md5sum
 
@@ -216,7 +216,7 @@ then check md5sum
 - 4faaef9a5c87fa0896d00cdbed7efd31  ref_data.tar.xz
  
  
-then move the `ref_data` to CaSee model work directory `CaSee-main`
+move the `ref_data` to CaSee model work directory `CaSee-main`
 
 next, you only modify the 'work_dir' in `CaSee_Reproduce/CaSee_Model_configs.yaml` for your own.
 
@@ -226,7 +226,13 @@ then run
 python CaSee.py --config /home/yuansh/Desktop/CaSee_Reproduce/CaSee_Model_configs.yaml
 ```
 
+after the program completed! open `Step-00.1.Similarity.ipynb` to check the similarity
 
+plz attention, because in the research, all scRNA-seq data we used 10x-cross validate.
+
+so due to the randomness of initialization model parameters, there may be differences in accuracy (error ~5%)
+
+> you can choose 20, 50-cross to stablize the result
 
 ## Contact
 
