@@ -66,24 +66,24 @@ a$Log2_nCount_RNA = log(a$nCount_RNA,2)
 df = a[which(a$timepoint == 'Pre'),]
 
 p1 = ggplot(df,aes(scale_predict,Log2_nCount_RNA,fill=scale_predict)) +geom_boxplot() + ggtitle('Cohort1_Pre')+
-  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "t.test")
+  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "wilcox.test")
 df = a[which(a$timepoint == 'On'),]
 p2 = ggplot(df,aes(scale_predict,Log2_nCount_RNA,fill=scale_predict)) +geom_boxplot() + ggtitle('Cohort1_On')+
-  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "t.test")
+  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "wilcox.test")
 
 df = a[which((a$timepoint == 'Pre') & (a$expansion == 'E')),]
 p3 = ggplot(df,aes(scale_predict,Log2_nCount_RNA,fill=scale_predict)) +geom_boxplot()+ ggtitle('Pre_E')+
-  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "t.test")
+  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "wilcox.test")
 df = a[which((a$timepoint == 'Pre') & (a$expansion == 'NE')),]
 p4 = ggplot(df,aes(scale_predict,Log2_nCount_RNA,fill=scale_predict)) +geom_boxplot()+ ggtitle('Pre_NE')+
-  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "t.test")
+  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "wilcox.test")
 
 df = a[which((a$timepoint == 'On') & (a$expansion == 'E')),]
 p5 = ggplot(df,aes(scale_predict,Log2_nCount_RNA,fill=scale_predict)) +geom_boxplot()+ ggtitle('On_E')+
-  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "t.test")
+  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "wilcox.test")
 df = a[which((a$timepoint == 'On') & (a$expansion == 'NE')),]
 p6 = ggplot(df,aes(scale_predict,Log2_nCount_RNA,fill=scale_predict)) +geom_boxplot()+ ggtitle('On_NE')+
-  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "t.test")
+  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "wilcox.test")
 x = CombinePlots(plots = list(p1,p2,p3,p4,p5,p6),legend='right')
 topptx(x,filename = '~/Desktop/cohort1.pptx',width = 8,height = 6)
 
@@ -99,27 +99,27 @@ sce = AddMetaData(sce,predict)
 a = sce@meta.data
 a$Log2_nCount_RNA = log(a$nCount_RNA,2)
 p1 = ggplot(a,aes(scale_predict,Log2_nCount_RNA,fill=scale_predict)) +geom_boxplot() + ggtitle('GSE131907')+
-  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "t.test")
+  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "wilcox.test")
 
 df = a[which(a$Sample_Origin == 'mBrain'),]
 p2 = ggplot(a,aes(scale_predict,Log2_nCount_RNA,fill=scale_predict)) +geom_boxplot() + ggtitle('mBrain')+
-  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "t.test")
+  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "wilcox.test")
 
 df = a[which(a$Sample_Origin == 'tLung'),]
 p3 = ggplot(a,aes(scale_predict,Log2_nCount_RNA,fill=scale_predict)) +geom_boxplot() + ggtitle('tLung')+
-  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "t.test")
+  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "wilcox.test")
 
 df = a[which(a$Sample_Origin == 'tL/B'),]
 p4 = ggplot(a,aes(scale_predict,Log2_nCount_RNA,fill=scale_predict)) +geom_boxplot() + ggtitle('tL/B')+
-  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "t.test")
+  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "wilcox.test")
 
 df = a[which(a$Sample_Origin == 'mLN'),]
 p5 = ggplot(a,aes(scale_predict,Log2_nCount_RNA,fill=scale_predict)) +geom_boxplot() + ggtitle('mLN')+
-  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "t.test")
+  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "wilcox.test")
 
 df = a[which(a$Sample_Origin == 'PE'),]
 p6 = ggplot(a,aes(scale_predict,Log2_nCount_RNA,fill=scale_predict)) +geom_boxplot() + ggtitle('PE')+
-  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "t.test")
+  scale_fill_manual(values = c("#E64B35B2",'#698EC3',"#7E6148B2"))+ stat_compare_means(method = "wilcox.test")
 
 x = CombinePlots(plots = list(p1,p2,p3,p4,p5,p6),legend='right')
 topptx(x,filename = '~/Desktop/GSE131907.pptx',width = 8,height = 6)
