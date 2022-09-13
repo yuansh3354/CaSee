@@ -70,12 +70,13 @@ For instructions on installing anaconda on your machine (download the distributi
 https://www.anaconda.com/distribution/
 
 ```
-#conda env create -n CaSee -f configs/CaSee_env_info.yaml
+~~#conda env create -n CaSee -f configs/CaSee_env_info.yaml~~
 
 # if there are some warnings or errors 
 # you can manually install some main packages
 # all pip software in all_pip_pacakges.yaml
-conda create -n CaSee python==3.8.8 # python==3.8
+~~conda create -n CaSee python==3.8.8 # python==3.8~~
+conda create -n CaSee python==3.9
 conda activate CaSee
 
 pip install pytorch-lightning==1.3.7 # -i https://pypi.tuna.tsinghua.edu.cn/simple
